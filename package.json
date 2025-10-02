@@ -1,0 +1,29 @@
+{
+  "name": "planet-scribbles",
+  "version": "1.0.0",
+  "description": "Planet Scribbles - Printing & Packaging Company Ecommerce Platform",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "install-server": "cd backend && npm install",
+    "install-client": "cd frontend && npm install",
+    "install-all": "npm run install-server && npm run install-client",
+    "start": "cd backend && npm start"
+  },
+  "keywords": [
+    "ecommerce",
+    "printing",
+    "packaging",
+    "react",
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "Planet Scribbles",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

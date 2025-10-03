@@ -1,11 +1,11 @@
 services:
-  # Backend API Service
+  # Full Stack Application (Backend + Frontend)
   - type: web
-    name: planet-scribbles-api
+    name: planet-scribbles
     env: node
     plan: free
-    buildCommand: npm run install-server
-    startCommand: cd backend && npm start
+    buildCommand: npm run build
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
@@ -29,14 +29,5 @@ services:
         sync: false
       - key: STRIPE_PUBLISHABLE_KEY
         sync: false
-
-  # Frontend Static Site
-  - type: web
-    name: planet-scribbles-frontend
-    env: static
-    plan: free
-    buildCommand: npm run build-frontend
-    staticPublishPath: ./frontend/build
-    envVars:
       - key: REACT_APP_API_URL
-        value: https://planet-scribbles-api.onrender.com
+        value: https://planet-scribbles.onrender.com

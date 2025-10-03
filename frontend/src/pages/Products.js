@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import axios from 'axios';
+import api from '../config/axios';
 import { MagnifyingGlassIcon, FunnelIcon } from '@heroicons/react/24/outline';
 
 const Products = () => {
@@ -23,14 +23,14 @@ const Products = () => {
         limit: 12,
         ...Object.fromEntries(Object.entries(filters).filter(([_, v]) => v))
       });
-      return axios.get(`/api/products?${params}`).then(res => res.data);
+      return api.get(`/products?${params}`).then(res => res.data);
     },
     { keepPreviousData: true }
   );
 
   const { data: categories } = useQuery(
     'categories',
-    () => axios.get('/api/products/categories').then(res => res.data)
+    () => api.get('/products/categories').then(res => res.data)
   );
 
   const handleFilterChange = (key, value) => {

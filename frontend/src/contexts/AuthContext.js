@@ -151,7 +151,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     loadUser();
-  }, []);
+  }, [loadUser]);
 
   return (
     <AuthContext.Provider
